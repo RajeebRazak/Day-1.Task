@@ -1,0 +1,115 @@
+1 Write a blog on Difference between HTTP1.1 vs HTTP2 ?
+
+                          HTTP1.1                                                        HTTP2
+* Multiplexing:  HTTP/1.1: Uses a single request-response at a time,              HTTP/2: Supports multiplexing, allowing multiple requests and responses to be 
+                  which means multiple requests require multiple connections.                  sent and received in parallel over a single connection.
+
+* Header Compression: HTTP/1.1: Headers are not compressed, which can lead         HTTP/2: Headers are compressed, reducing the amount of data transmitte     
+                      to increased overhead for each request                                and improving overall performance. 
+
+* Binary Format:HTTP/1.1: Uses plain text for requests and responses.               HTTP/2: Employs a binary format, which is more efficient to parse and transmit.
+
+* Server Push:HTTP/1.1: Does not support server push.                               HTTP/2: Allows servers to proactively send resources to the client before they are requested.
+
+* Prioritization:HTTP/1.1: All requests are treated as equally important.           HTTP/2: Allows requests to be prioritized, ensuring critical resources are delivered first.
+
+* Flow Control:HTTP/1.1: Lacks explicit flow control mechanisms.                    HTTP/2: Implements flow control at the frame level to prevent overwhelming the client.
+
+* Server Efficiency:HTTP/1.1: Servers may be constrained by the number of           HTTP/2: Servers can more efficiently handle a larger number of requests due to multiplexing.
+                       simultaneous connections they can handle.
+
+* Domain Sharding and Concatenation:HTTP/1.1: Uses techniques like domain           HTTP/2: These techniques are discouraged and often unnecessary due to           
+  sharding (splitting resources across multiple domains) and concatenation                  the improved multiplexing capabilities.          
+   (combining multiple files into one) to improve performance
+
+* Header Overhead: HTTP/1.1: Headers are sent with each request and response,       HTTP/2: Header fields are compressed, reducing the overhead associated with headers.
+   which can lead to increased overhead.
+
+* Connection Reuse:HTTP/1.1: Requires multiple connections for concurrent           HTTP/2: Allows for connection reuse, reducing the need to establish multiple connections.
+                  requests, which can be less efficient
+
+* Fallback Mechanisms:HTTP/1.1: Does not have built-in support for fallback         HTTP/2: Supports graceful fallback to HTTP/1.1 for clients that do not support HTTP/2
+           mechanisms
+
+* Round-Trip Optimization:HTTP/1.1: Requires multiple round-trips to establish      HTTP/2: Optimizes round-trips through techniques like header compression and multiplexing
+                          connections and retrieve resources
+
+* Server Load:HTTP/1.1: Can lead to increased server load due to the need for       HTTP/2: Reduces server load by allowing multiplexing and more efficient resource handling
+                        multiple connections.
+
+* Security:HTTP/1.1: No inherent security features, relies on additional            HTTP/2: Encourages the use of secure connections (HTTPS) and is designed with 
+                      protocols like TLS for encryption.                                    modern security practices in mind
+
+* Browser Support: HTTP/1.1: Universally supported by all browsers.                 HTTP/2: Widely supported by modern browsers, though support may vary for older browsers
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+2. Write a blog about objects and its internal representation in Javascript ?
+
+  Understanding Objects and Their Internal Representation in JavaScriptJavaScript.
+
+  JavaScript, as a versatile and widely-used programming language, relies heavily on objects. They are a fundamental data structure in JavaScript and form the backbone of most programs.
+  In this blog post, we'll delve into what objects are, how they are represented internally, and why they are crucial in JavaScript programming.
+ 
+ What are Objects in JavaScript?
+ 
+ In JavaScript, an object is a composite data type that groups together related data and behavior. It's a collection of key-value pairs where the keys are strings (or Symbols) that act as 
+  unique identifiers for the values. These values can be of any data type, including other objects, functions, arrays, and primitive types like strings, numbers, and booleans.Objects in 
+  JavaScript are used to represent real-world entities, abstract concepts, and more. For example, a user object might have properties like name, email, and age, along with methods functions
+  interacting with that user.
+
+ Internal Representation of Objects
+
+  Under the hood, JavaScript engines implement objects using a combination of memory management techniques and data structures. Let's explore the key aspects of how objects are internally
+  represented:
+
+ 1. Property Descriptors:
+
+ Each property of an object has an associated property descriptor that defines the behavior of that property, including attributes like writable, enumerable, and configurable.
+
+ 2. Hidden Classes:
+
+ JavaScript engines employ a technique called "hidden classes" or "shapes" to optimize property access. When an object is created, it is associated with a hidden class that defines the
+  layout of the object in memory.
+
+ 3. Property Maps:
+
+ Objects with the same hidden class share a property map, which is a data structure that keeps track of property names and their corresponding offsets in memory.
+
+ 4. Proto Chain:
+
+ Objects in JavaScript are linked together through a prototype chain. Each object has a __proto__ property that points to its prototype object. This allows for property delegation 
+  - if a property is not found on an object.JavaScript looks for it in its prototype and continues up the chain until it reaches null.
+
+ 5. Garbage Collection:
+
+ JavaScript engines use garbage collection algorithms to reclaim memory that is no longer in use. This ensures that objects are automatically cleaned up when they are no longer referenced.
+
+ Why Objects are Crucial.
+
+  Understanding how objects are represented internally is crucial for writing efficient JavaScript code. Here are a few reasons why objects are essential:
+
+ 1. Organizing Data:
+
+   Objects allow us to organize related data and behavior in a structured manner, making our code more readable and maintainable.
+
+ 2. Code Reusability:
+
+   Objects facilitate code reuse through concepts like inheritance and composition, enabling us to build on existing functionality.
+
+ 3. Complex Data Modeling:
+
+  Objects are invaluable for modeling complex real-world entities and relationships, providing a powerful abstraction mechanism.
+
+ 4. Efficient Property Access:
+
+  Understanding hidden classes and property maps helps optimize property access, leading to faster execution times.
+
+ 5. Prototype-based Inheritance:
+
+  The prototype chain allows for a flexible and powerful form of inheritance, enabling the creation of hierarchies of objects.
+
+
+
+
+
+
